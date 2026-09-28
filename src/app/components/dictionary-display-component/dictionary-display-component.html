@@ -1,0 +1,21 @@
+<h1>Dictionary Component Test</h1>
+
+<table border="1px" width="60%" align="center">
+    <tr>
+        <td align="center">
+            <h1>Alpha Slang Dictionary</h1>
+        </td>
+    </tr>
+</table>
+<table border="1px" width="60%" align="center">
+    <tr>
+        <th width="25%">Terms</th>
+        <th width="65%">Definitions</th>   
+    </tr>
+    @for (terms of alphaSlang.terms(); track terms.term){
+        <tr>
+            <th>{{ terms.term }}</th>
+            <td>{{ terms.description }}</td>
+        </tr>
+    }
+</table>
