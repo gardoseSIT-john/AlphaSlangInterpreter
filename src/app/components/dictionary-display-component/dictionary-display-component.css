@@ -1,0 +1,20 @@
+
+
+#term_table{
+    border: 1px solid black;
+    width:65%;
+    align-items: center;
+    margin-left: 18%;
+}
+#term_name td h2{
+    margin-left: 10px;
+    background-color: #ffad3b;
+    height: 50px;
+    font-size: 40px;
+}
+#term_description p{
+    margin-left:30px;
+}
+#term_description h2{
+    margin-left: 15px;
+}
