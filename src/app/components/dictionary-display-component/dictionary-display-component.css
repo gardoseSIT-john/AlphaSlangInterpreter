@@ -1,0 +1,50 @@
+/* The entire card */
+.term-card {
+}
+
+/* The table inside the card */
+.term-card .term-card-table {
+    width: 15%;
+    background-color: #493b3b;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* The TermName cell */
+.term-card .term-name-cell {
+    background-color: #e2d2d2;
+    text-align: center;
+    width:100%
+}
+
+.term-card:has(.term-card-table:hover) .definition-cell, .term-card:has(.term-card-table:hover) .sample-cell {
+    background-color: #460e0e;
+    opacity:1;
+    max-height: 200px;
+}
+
+/* The Definition cell */
+.term-card .definition-cell {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, opacity 0.3s;
+    display:block
+}
+
+/* The Sample cell */
+.term-card .sample-cell {
+    max-height: 0px;
+    opacity:0;
+    overflow: hidden;
+    transition:opacity 0.5s ease-in-out,max-height 0.5s ease-in-out;
+    display:block
+}
+
+/* The "Definition" / "Sample Sentence" headings */
+.term-card .section-title {
+}
+
+/* The actual definition / sentence */
+.term-card .section-content {
+}
