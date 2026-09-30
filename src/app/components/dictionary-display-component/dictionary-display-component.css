@@ -122,7 +122,7 @@ tbody { display: contents; }
 #term_name h2 {
   display: inline-block;
   margin: 0;
-  padding: 0.1em 0.4em 0.16em;
+  padding: 0.2em 0.4em 0.16em;
   font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem);
   font-weight: 900;
   font-stretch: 112%;
