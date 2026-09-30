@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 6px 18px -16px rgb(var(--shadow) / 0.4);
+}
+
+h2 {
+  max-width: 60rem;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink);
+}
