@@ -1,1 +1,130 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   Alpha Slang Interpreter — global styles
+   Look: "caption & sticker" — slang lives in chats and short videos, so
+   the page borrows their marks: caption boxes, die-cut stickers, chat bubbles.
+   ========================================================================== */
+
+/* TikTok Sans (OFL-1.1, see assets/fonts/OFL-TikTokSans.txt).
+   Self-hosted so the app still looks right on offline / lab networks.
+   One variable file = weights 300–900 and widths 75%–150%. */
+@font-face {
+  font-family: 'TikTok Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 900;
+  font-stretch: 75% 150%;
+  src: url('./assets/fonts/tiktok-sans-latin-variable.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------- Design tokens ---------- */
+:root {
+  color-scheme: light dark;
+
+  --ink: #1f1b3d;            /* main text, deep indigo */
+  --ink-soft: #5d5782;       /* labels, secondary text */
+  --paper: #efebfa;          /* page background, soft lilac */
+  --surface: #ffffff;        /* panels and caption boxes */
+  --line: #d9d2f0;           /* dividers */
+
+  --tangerine: #ffad3b;      /* the team's original accent, kept */
+  --pink: #ff78b6;
+  --sky: #8ccfff;
+  --chat: #2a5ff0;           /* example sentences = sent messages */
+  --on-chat: #ffffff;
+
+  --sticker-ink: #1f1b3d;    /* text on stickers stays dark in both themes */
+  --sticker-edge: #ffffff;   /* die-cut white border */
+  --shadow: 31 27 61;        /* rgb triple for tinted shadows */
+
+  --font: 'TikTok Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --ease-pop: cubic-bezier(0.3, 1.5, 0.5, 1);
+
+  /* white outline + soft shadow, makes an emoji look like a cut-out sticker */
+  --die-cut: drop-shadow(0.05em 0 0 var(--sticker-edge))
+    drop-shadow(-0.05em 0 0 var(--sticker-edge))
+    drop-shadow(0 0.05em 0 var(--sticker-edge))
+    drop-shadow(0 -0.05em 0 var(--sticker-edge))
+    drop-shadow(0 0.12em 0.14em rgb(var(--shadow) / 0.3));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f3f0ff;
+    --ink-soft: #b3acd8;
+    --paper: #16132b;
+    --surface: #231f41;
+    --line: #3a3463;
+    --sticker-edge: #f3f0ff;
+    --shadow: 0 0 0;
+  }
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.55;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--tangerine);
+  color: var(--sticker-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--chat);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Shared motion (used by the dictionary page) ---------- */
+@keyframes asi-land {
+  from { opacity: 0; transform: translateY(0.3em) rotate(-3deg) scale(1.06); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes asi-slap {
+  from { opacity: 0; scale: 1.5; }
+  60% { opacity: 1; scale: 0.94; }
+  to { opacity: 1; scale: 1; }
+}
+@keyframes asi-pop {
+  from { opacity: 0; scale: 0.85; translate: 0 0.6rem; }
+  to { opacity: 1; scale: 1; translate: 0 0; }
+}

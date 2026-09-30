@@ -45,7 +45,6 @@ export class AlphaTermsService {
 
     ])
 
-
     terms = this._alphaTerms.asReadonly();
 
 

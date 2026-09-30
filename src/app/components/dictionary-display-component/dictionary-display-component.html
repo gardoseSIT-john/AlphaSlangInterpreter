@@ -19,44 +19,26 @@
         </tr>
     }
 </table>
-<table width="100%" class="term-sector">
-    <tr>
-        <td>
-            @@for (terms of alphaSlang.terms(); track terms.term) {
-    <div class="term-card">
-
-        <table class="term-card-table">
-
-            <tr>
-                <td class="term-name-cell">
-                    <h3>{{ terms.term }}</h3>
+<table width="100%">
+@for (terms of alphaSlang.terms(); track terms.term){
+    <div id="term_card">
+        <table id="term_table">
+            <tr id="term_name">
+                <td><h2>{{terms.term}}</h2></td>
+            </tr>
+            <tr id ="term_description">
+                <td>
+                    <h2>Description</h2>
+                    <p>{{terms.description}}</p>
                 </td>
             </tr>
-
-            <tr>
-                <td class="definition-cell">
-                    <p class="section-title">Definition</p>
-                    <p class="section-content">
-                        {{ terms.description }}
-                    </p>
-                </td>
+            <tr id="term_sample">
+                <td><p>{{terms.example}}</p></td>
             </tr>
-
-            <tr>
-                <td class="sample-cell">
-                    <p class="section-title">Sample Sentence</p>
-                    <p class="section-content">
-                        {{ terms.example }}
-                    </p>
-                </td>
-            </tr>
-
         </table>
 
+
     </div>
-    }
-        </td>
-    </tr>
-    
+}
     
 </table>
