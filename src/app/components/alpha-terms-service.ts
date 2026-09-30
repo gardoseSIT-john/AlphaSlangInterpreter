@@ -19,6 +19,18 @@ export class AlphaTermsService {
             dateOfOrigin: '2023'
         },
         {
+            term: "Unc",
+            description: "Short for uncle; used to describe an older person or someone acting out-of-touch/old.",
+            example: "Look at him using old memes, he's basically an unc.",
+            dateOfOrigin: "2024"
+        },
+        {
+            term: "Mog",
+            description: "To completely outshine someone in appearance, height, style, or physical presence.",
+            example: "He walked into the room and totally mogged everyone there.",
+            dateOfOrigin: "2023"
+        },
+        {
             term: 'Brainrot',
             description: 'No-brainer, low-effort, repetitive short videos',
             example: 'Scrolling endlessly through reels left me with a terminal brainrot',
@@ -127,6 +139,12 @@ export class AlphaTermsService {
             dateOfOrigin: '2023'
         },
         {
+            term: "Crash Out",
+            description: "To lose your temper completely, engage in self-destructive behavior, or explode in anger.",
+            example: "He got so mad at the video game he was about to crash out.",
+            dateOfOrigin: "2023"
+        },
+        {
             term: 'Delulu',
             description: 'Delusional; holding unrealistically optimistic beliefs.',
             example: "Thinking he'll text back after three weeks is total delulu.",
@@ -139,6 +157,18 @@ export class AlphaTermsService {
             dateOfOrigin: '2022'
         },
         {
+            term: "Glazing",
+            description: "Overly complimenting, hyping, or sucking up to someone in an embarrassing way.",
+            example: "Stop glazing him, he only made one basic basket.",
+            dateOfOrigin: "2022"
+        },
+        {
+            term: "Cooked",
+            description: "Done for, doomed, or completely ruined.",
+            example: "I didn't study for the exam, I'm absolutely cooked.",
+            dateOfOrigin: "2023"
+        },
+        {
             term: 'Sus',
             description: 'Suspicious or shady.',
             example: 'Why is he acting so sus all of a sudden?',
@@ -149,7 +179,19 @@ export class AlphaTermsService {
             description: 'Used to describe anything weird, cursed, or chaotic.',
             example: 'Only in Ohio would something like that happen.',
             dateOfOrigin: '2022'
-        }
+        },
+        {
+            term: "Side Quest",
+            description: "A random, unexpected, or completely unneeded activity detour from your main plan.",
+            example: "We went to get milk and ended up going on a 3-hour side quest at the mall.",
+            dateOfOrigin: "2022"
+        },
+        {
+            term: "Ate / Left No Crumbs",
+            description: "Executed something perfectly, especially a outfit, performance, or response.",
+            example: "She wore that outfit and completely ate, left no crumbs.",
+            dateOfOrigin: "2021"
+        },
 
     ])
 
