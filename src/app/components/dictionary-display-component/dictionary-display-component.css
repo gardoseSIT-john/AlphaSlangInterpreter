@@ -1,20 +1,196 @@
+/* Dictionary page. Styles only — the template and data are untouched.
+   Order in the template: [0] test label  [1] title  [2] quick list  [3] entries */
 
+:host {
+  display: block;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem) 6rem;
+}
 
-#term_table{
-    border: 1px solid black;
-    width:65%;
-    align-items: center;
-    margin-left: 18%;
+/* [0]FreeCodeCamp - Reset the old table attributes (border, width, align) */
+table, tr, th, td {
+  display: block;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
 }
-#term_name td h2{
-    margin-left: 10px;
-    background-color: #ffad3b;
-    height: 50px;
-    font-size: 40px;
+tbody { display: contents; }
+
+/* [0]"Dictionary Component Test"*/
+:host > h1 {
+  display: inline-block;
+  margin: 0 0 2rem;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
 }
-#term_description p{
-    margin-left:30px;
+
+/* [1]styled like a video caption: text on boxes that wrapings each line */
+:host > table:nth-of-type(1) td {
+  max-width: 5.6em;
+  position: relative;
+  font-size: clamp(3.25rem, 1.6rem + 8vw, 7rem);
+  transform-origin: 0 100%;
 }
-#term_description h2{
-    margin-left: 15px;
+:host > table:nth-of-type(1) td::after {
+  content: '\1F525' / '';
+  position: absolute;
+  top: -0.28em;
+  left: calc(100% - 0.28em);
+  font-size: 0.62em;
+  line-height: 1;
+  rotate: 14deg;
+  filter: var(--die-cut);
 }
+:host > table:nth-of-type(1) h1 {
+  display: inline;
+  margin: 0;
+  padding: 0.02em 0.2em 0.06em;
+  font-size: 1em;
+  font-weight: 900;
+  font-stretch: 78%;
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: var(--surface);
+  border-radius: 0.16em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* [2]the Terms / Definitions table */
+:host > table:nth-of-type(2) {
+  margin: clamp(2.5rem, 6vw, 4rem) 0 clamp(3rem, 7vw, 5rem);
+  padding: 0.25rem clamp(1.1rem, 3vw, 2rem);
+  background: var(--surface);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 48px -32px rgb(var(--shadow) / 0.45);
+}
+:host > table:nth-of-type(2) tr {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 0.2rem 1.5rem;
+  align-items: baseline;
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+:host > table:nth-of-type(2) tr:first-child {
+  padding-block: 1rem 0.6rem;
+  border-top: 0;
+}
+:host > table:nth-of-type(2) th {
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: 1.05rem;
+}
+:host > table:nth-of-type(2) tr:first-child th {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-stretch: 100%;
+  color: var(--ink-soft);
+}
+:host > table:nth-of-type(2) td {
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* [3] Entries — sticker headword, meaning, and a chat bubble example */
+#term_card {
+  padding-block: clamp(2rem, 5vw, 3rem);
+  border-top: 2px dashed var(--line);
+}
+#term_card:first-child { border-top: 0; padding-top: 0.5rem; }
+#term_card:nth-child(3n + 2) { --sticker: var(--pink); --tilt: 2.5deg; }
+#term_card:nth-child(3n) { --sticker: var(--sky); --tilt: -1.5deg; }
+
+#term_table {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+}
+#term_name { grid-row: span 2; padding-top: 0.35rem; }
+#term_description, #term_sample { grid-column: 2; }
+
+#term_name h2 {
+  display: inline-block;
+  margin: 0;
+  padding: 0.1em 0.4em 0.16em;
+  font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem);
+  font-weight: 900;
+  font-stretch: 112%;
+  line-height: 1.05;
+  color: var(--sticker-ink);
+  background: var(--sticker, var(--tangerine));
+  border-radius: 0.3em;
+  box-shadow: 0 0 0 0.14em var(--sticker-edge),
+    0 0.6rem 1.2rem -0.35rem rgb(var(--shadow) / 0.4);
+  rotate: var(--tilt, -3deg);
+  transition: rotate 0.4s var(--ease-pop);
+}
+#term_card:hover #term_name h2 { rotate: 0deg; }
+
+#term_description h2 {
+  margin: 0 0 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+#term_description p {
+  margin: 0 0 1.25rem;
+  max-width: 52ch;
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+  text-wrap: pretty;
+}
+
+#term_sample p {
+  display: inline-block;
+  max-width: min(100%, 34ch);
+  margin: 0;
+  padding: 0.6rem 1.05rem 0.65rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--on-chat);
+  background: var(--chat);
+  border-radius: 1.3rem 1.3rem 1.3rem 0.35rem;
+  box-shadow: 0 12px 24px -16px var(--chat);
+  transform-origin: 0 100%;
+}
+
+/* Phones: stack the entry */
+@media (max-width: 40rem) {
+  :host > table:nth-of-type(2) tr:not(:first-child) { grid-template-columns: 1fr; }
+  :host > table:nth-of-type(2) tr:first-child {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
+  }
+  :host > table:nth-of-type(2) tr:nth-child(2) { border-top: 0; }
+  #term_table { grid-template-columns: minmax(0, 1fr); }
+  #term_name { grid-row: auto; padding: 0 0 1.25rem; }
+  #term_description, #term_sample { grid-column: 1; }
+}
+
+/* Motion: title lands on load, stickers slap on as you scroll to them */
+@media (prefers-reduced-motion: no-preference) {
+  :host > table:nth-of-type(1) td { animation: asi-land 0.7s var(--ease-pop) both; }
+
+  @supports (animation-timeline: view()) {
+    #term_name h2 {
+      animation: asi-slap linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+    #term_sample p {
+      animation: asi-pop linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+/* Keyframes (asi-land, asi-slap, asi-pop) live in src/styles.css */
