@@ -85,9 +85,11 @@
 }
 
 #dictionary_header {
-  position: relative;
-  padding: 0.25rem 0 0.75rem;
-  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 4rem;
 }
 
 #dictionary_header::before,
@@ -133,4 +135,75 @@
 #dictionary_footer span:first-child,
 #dictionary_footer span:last-child {
   font-size: 0.55rem;
+}
+
+#dictionary_header table {
+    width: 100%;
+}
+
+#dictionary_title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: left 0.3s ease;
+}
+#dictionary_search {
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#dictionary_search textarea {
+    width: 0;
+    height: 2rem;
+    padding: 0;
+    opacity: 0;
+    border: 0;
+    resize: none;
+    transition:
+        width 0.3s ease,
+        padding 0.3s ease,
+        opacity 0.2s ease;
+}
+#dictionary_search.search-open textarea {
+    width: 15rem;
+    padding: 0.4rem 0.6rem;
+    opacity: 1;
+}
+
+#dictionary_search h1 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+#dictionary_search.search-open ~ #dictionary_title {
+    left: 20%;
+}
+
+#dictionary_search button {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+#dictionary_search button:hover {
+    background: var(--chat);
+    box-shadow: 0 6px 12px -10px rgb(var(--shadow) / 0.5);
+    transform: translateY(-1px);
+}
+
+#dictionary_search button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }

@@ -1,4 +1,4 @@
-import { Component,inject } from '@angular/core';
+import { Component,inject,signal } from '@angular/core';
 import { AlphaTermsService } from '../alpha-terms-service';
 
 @Component({
@@ -9,5 +9,11 @@ import { AlphaTermsService } from '../alpha-terms-service';
 })
 export class DictionaryDisplayComponent {
   alphaSlang = inject(AlphaTermsService);
+
+  showSearch = signal(false);
+
+  toggleSearch(){
+    this.showSearch.set(!this.showSearch());
+  }
 
 }
