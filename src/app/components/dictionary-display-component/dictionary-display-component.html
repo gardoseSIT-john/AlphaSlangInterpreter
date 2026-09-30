@@ -19,15 +19,17 @@
         </tr>
     }
 </table>
-<table width="100%">
-@@for (terms of alphaSlang.terms(); track terms.term) {
+<table width="100%" class="term-sector">
+    <tr>
+        <td>
+            @@for (terms of alphaSlang.terms(); track terms.term) {
     <div class="term-card">
 
         <table class="term-card-table">
 
             <tr>
                 <td class="term-name-cell">
-                    <h2>TermNameHere</h2>
+                    <h3>{{ terms.term }}</h3>
                 </td>
             </tr>
 
@@ -35,7 +37,7 @@
                 <td class="definition-cell">
                     <p class="section-title">Definition</p>
                     <p class="section-content">
-                        This is a sample definition of the term
+                        {{ terms.description }}
                     </p>
                 </td>
             </tr>
@@ -44,7 +46,7 @@
                 <td class="sample-cell">
                     <p class="section-title">Sample Sentence</p>
                     <p class="section-content">
-                        This is a sample sentence using the term.
+                        {{ terms.example }}
                     </p>
                 </td>
             </tr>
@@ -52,6 +54,9 @@
         </table>
 
     </div>
-}
+    }
+        </td>
+    </tr>
+    
     
 </table>

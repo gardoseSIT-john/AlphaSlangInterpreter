@@ -1,27 +1,45 @@
+/* The card conntainer */
+table.term-sector{
+    border:1px solid black;
+}
 /* The entire card */
 .term-card {
+    
 }
 
 /* The table inside the card */
 .term-card .term-card-table {
     width: 15%;
-    background-color: #493b3b;
-    margin-left: auto;
+    background-color: white;
     margin-right: auto;
+    margin-left:100px;
+    transition: width 0.3s ease-in-out;
+   
 }
 
 /* The TermName cell */
 .term-card .term-name-cell {
-    background-color: #e2d2d2;
-    text-align: center;
-    width:100%
+    background-color: #dbd4b5;
+    text-align: left;
+    width:100%;
+    max-height:1px;
+    border-radius: 10px;
 }
 
-.term-card:has(.term-card-table:hover) .definition-cell, .term-card:has(.term-card-table:hover) .sample-cell {
-    background-color: #460e0e;
-    opacity:1;
-    max-height: 200px;
+.term-card .term-name-cell h3{
+    margin-left: 25px;
 }
+
+
+.term-card:has(.term-card-table:hover) .definition-cell, .term-card:has(.term-card-table:hover) .sample-cell {
+    
+    opacity:1;
+    max-height: 100px;
+}
+.term-card:has(.term-card-table:hover) .term-card-table{
+    width: 45%;
+}
+
 
 /* The Definition cell */
 .term-card .definition-cell {
@@ -39,6 +57,19 @@
     overflow: hidden;
     transition:opacity 0.5s ease-in-out,max-height 0.5s ease-in-out;
     display:block
+}
+
+.term-card .sample-cell p.section-title{
+    margin-left:25px;
+}
+.term-card .sample-cell p.section-content{
+    margin-left:75px;
+}
+.term-card .definition-cell p.section-title{
+    margin-left:25px;
+}
+.term-card .definition-cell p.section-content{
+    margin-left:75px;
 }
 
 /* The "Definition" / "Sample Sentence" headings */
