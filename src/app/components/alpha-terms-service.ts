@@ -195,8 +195,6 @@ export class AlphaTermsService {
 
     ])
 
-    private filteredTerms =signal<any[]>([])
-    currentFilteredTerms = this.filteredTerms.asReadonly();
 
 
 
