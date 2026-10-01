@@ -4,8 +4,8 @@
             id="dictionary_search"
             [class.search-open]="showSearch()"
         >
-            <button (click)="toggleSearch()">Find Term</button>
-            <input type="text">             
+            <button (click)="toggleSearch()">Search</button>
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Enter term">             
         </div>
 
         <div id="dictionary_title">
@@ -13,7 +13,27 @@
         </div>
     </div>
 
-    @for (terms of alphaSlang.terms(); track terms.term) {
+    @if (searchTerm()){
+        @for (terms of alphaSlang.terms(); track terms.term){
+            @if (terms.term.includes(searchTerm())){
+                <div id="term_card">
+                    <div id="term_name">
+                        <h2>{{ terms.term }}</h2>
+                    </div>
+
+                    <div id="term_description">
+                        <p>{{ terms.description }}</p>
+                    </div>
+
+                    <div id="term_sample">
+                        <p>{{ terms.example }}</p>
+                    </div>
+                </div>
+            }
+        }
+    }
+    @else {
+         @for (terms of alphaSlang.terms(); track terms.term) {
         <div id="term_card">
             <div id="term_name">
                 <h2>{{ terms.term }}</h2>
@@ -29,6 +49,9 @@
         </div>
     }
 
+    }
+
+   
     <!--We need to make a test filter here.-->
     
 
