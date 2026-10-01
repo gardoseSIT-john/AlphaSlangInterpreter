@@ -4,8 +4,8 @@
             id="dictionary_search"
             [class.search-open]="showSearch()"
         >
-            <button (click)="toggleSearch()">Search</button>
-            <textarea></textarea>
+            <button (click)="toggleSearch()">Find Term</button>
+            <input type="text">             
         </div>
 
         <div id="dictionary_title">
@@ -28,6 +28,9 @@
             </div>
         </div>
     }
+
+    <!--We need to make a test filter here.-->
+    
 
     <div id="dictionary_footer">
         <span>✦</span>

@@ -155,7 +155,7 @@
     gap: 0.5rem;
 }
 
-#dictionary_search textarea {
+#dictionary_search input {
     width: 0;
     height: 2rem;
     padding: 0;
@@ -167,7 +167,7 @@
         padding 0.3s ease,
         opacity 0.2s ease;
 }
-#dictionary_search.search-open textarea {
+#dictionary_search.search-open input {
     width: 15rem;
     padding: 0.4rem 0.6rem;
     opacity: 1;
@@ -181,6 +181,7 @@
 #dictionary_search.search-open ~ #dictionary_title {
     left: 20%;
 }
+
 
 #dictionary_search button {
     padding: 0.45rem 0.8rem;
@@ -207,3 +208,8 @@
     transform: translateY(0);
     box-shadow: none;
 }
+
+#dictionary_SearchTrigger{
+  display: none;
+}
+
