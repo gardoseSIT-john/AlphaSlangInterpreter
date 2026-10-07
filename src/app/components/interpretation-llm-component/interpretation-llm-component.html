@@ -1,0 +1,18 @@
+<div class="interpretation-card">
+  <h2 class="card-title">LLM Interpreter</h2>
+  
+  <div class="input-group">
+    <textarea 
+      [(ngModel)]="inputText" 
+      placeholder="Enter slang/text" 
+      rows="4">
+    </textarea>
+  </div>
+
+  <button class="submit-btn" (click)="onSubmit()">Submit</button>
+
+  <div *ngIf="displayText" class="output-container">
+    <h3>Output:</h3>
+    <p>{{ displayText }}</p>
+  </div>
+</div>
