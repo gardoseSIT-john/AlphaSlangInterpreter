@@ -1800,7 +1800,7 @@ export class AlphaTermsService {
         {
             term: "Trollface Edit",
             description: "An edit featuring the Trollface meme for comedic effect.",
-            example: "The video ended with a trollface edit.",
+            example: "The video ended with a trollface edit.",      
             dateOfOrigin: "2022"
         },
         {

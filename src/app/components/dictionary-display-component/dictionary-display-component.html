@@ -5,7 +5,8 @@
             [class.search-open]="showSearch()"
         >
             <button (click)="toggleSearch()">Search</button>
-            <input type="text" [(ngModel)]="searchTerm" placeholder="Enter term">             
+            <input type="text" [(+
+            )]="searchTerm" placeholder="Enter term">             
         </div>
 
         <div id="dictionary_title">
@@ -50,9 +51,6 @@
     }
 
     }
-
-   
-    <!--We need to make a test filter here.-->
     
 
     <div id="dictionary_footer">

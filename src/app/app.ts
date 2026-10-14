@@ -2,9 +2,11 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {DictionaryDisplayComponent} from './components/dictionary-display-component/dictionary-display-component';
 import {TopBar} from './components/top-bar/top-bar';
+import { InterpretationDisplayComponent } from './components/interpretation-display-component/interpretation-display-component';
+import { Testwink} from './components/testwink/testwink'
 
 @Component({
-  imports: [RouterOutlet,DictionaryDisplayComponent,TopBar],
+  imports: [RouterOutlet, DictionaryDisplayComponent, TopBar, InterpretationDisplayComponent, Testwink],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
@@ -12,3 +14,4 @@ import {TopBar} from './components/top-bar/top-bar';
 export class App {
   protected readonly title = signal('AlphaSlangInterpreter');
 }
+ 
