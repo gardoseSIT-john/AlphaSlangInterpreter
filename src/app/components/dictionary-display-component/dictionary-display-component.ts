@@ -14,6 +14,12 @@ export class DictionaryDisplayComponent {
   private formBuilder = inject(FormBuilder);
   alphaSlangService = inject(AlphaTermsService);
 
+  ngOnInit(): void{
+    console.log("Waga");
+    this.alphaSlangService.fetchTerms();
+  }
+
+
   slangtermForm = this.formBuilder.nonNullable.group({
     term: ['', Validators.required],
     description: ['', Validators.required],

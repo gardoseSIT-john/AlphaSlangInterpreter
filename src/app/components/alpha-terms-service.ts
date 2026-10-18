@@ -1,4 +1,4 @@
-import { Service, Injectable,signal,inject } from '@angular/core';
+import { Service, Injectable,signal,inject, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 
@@ -11,8 +11,10 @@ export class AlphaTermsService {
     private http = inject(HttpClient);
     private apiURL = 'http://localhost:3000/api/slangterm'; //This be the MONGODB Version.
 
-    alphaTermsList = signal<any[]>([]); //This be the MONGODB Version.
 
+
+    alphaTermsList = signal<any[]>([]); //This be the MONGODB Version.
+    
     fetchTerms(){
         console.log("Fetching Terms from MongoDB");
         this.http.get<any[]>(this.apiURL).subscribe(data => this.alphaTermsList.set(data));
@@ -21,12 +23,7 @@ export class AlphaTermsService {
     saveTerms(data:any){
         return this.http.post(this.apiURL,data);
     }
-
-
     
-
-
-
     private _alphaTerms = signal([
         {
             term: 'Gyatt',
