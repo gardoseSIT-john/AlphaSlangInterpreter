@@ -1,3 +1,5 @@
+
+<!--
 <div id="dictionary">
     <div id="dictionary_header">
         <div
@@ -51,9 +53,6 @@
 
     }
 
-   
-    <!--We need to make a test filter here.-->
-    
 
     <div id="dictionary_footer">
         <span>✦</span>
@@ -61,3 +60,24 @@
         <span>✦</span>
     </div>
 </div>
+
+-->
+
+<form [formGroup]="slangtermForm" (ngSubmit)="onSubmit()">
+    <input formControlName="term" placeholder="Enter Term">
+    <input formControlName="description" placeholder="Enter Description">
+    <input formControlName="example" placeholder="Enter Example">
+    <input formControlName="dateOfOrigin" placeholder="Enter Date of Origin">
+    <button type="submit" [disabled]="!slangtermForm.valid">Add Term</button>
+</form>
+
+@for (t of alphaSlangService.alphaTermsList(); track t._id){
+    <div class="card">
+        <h3>Term: {{t.term}}</h3>
+        <h3>Description: {{t.description}}</h3>
+        <h3>Example: {{t.example}}</h3>
+        <p>Date of Origin: {{t.dateOfOrigin}}</p>
+    </div>
+} @empty {
+    <p>No Terms Recorded</p>
+}
