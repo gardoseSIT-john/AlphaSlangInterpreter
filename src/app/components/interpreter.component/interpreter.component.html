@@ -1,0 +1,30 @@
+<section class="interpreter">
+  <h1>Alpha Slang Interpreter</h1>
+
+  <label for="slang-input">Alpha slang</label>
+  <textarea
+    id="slang-input"
+    rows="5"
+    placeholder="Type or paste some alpha slang..."
+    [ngModel]="input()"
+    (ngModelChange)="input.set($event)"
+  ></textarea>
+
+  <div class="actions">
+    <button (click)="interpret()" [disabled]="loading() || !input().trim()">
+      {{ loading() ? 'Interpreting...' : 'Interpret' }}
+    </button>
+    <button class="secondary" (click)="clear()">Clear</button>
+  </div>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <label>Plain English</label>
+  <div class="output">{{ output() || 'The interpretation will show up here.' }}</div>
+
+  @if (matches().length) {
+    <p class="matches">Slang found: {{ matches().join(', ') }}</p>
+  }
+</section>

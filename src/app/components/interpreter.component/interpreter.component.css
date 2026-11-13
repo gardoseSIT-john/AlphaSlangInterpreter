@@ -1,0 +1,6 @@
+.interpreter { max-width: 640px; margin: 2rem auto; display: flex; flex-direction: column; gap: 0.75rem; }
+textarea { width: 100%; padding: 0.75rem; font: inherit; box-sizing: border-box; }
+.actions { display: flex; gap: 0.5rem; }
+.output { min-height: 6rem; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; white-space: pre-wrap; }
+.error { color: #c0392b; }
+.matches { font-size: 0.9rem; opacity: 0.8; }

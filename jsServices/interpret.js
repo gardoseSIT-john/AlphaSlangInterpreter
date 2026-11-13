@@ -22,6 +22,7 @@ async function getSlangs() {
 }
 
 async function interpretText(text) {
+  console.log('Interpreting text:', text);
   const slangs = await getSlangs();
   if (!slangs.length) return { translation: text, matches: [] };
 
@@ -41,6 +42,8 @@ async function interpretText(text) {
     return entry.plain || entry.description;
   });
 
+  console.log("[Interpretation Done] Original:", text);
+  console.log('Translation:', translation);
   return { translation, matches };
 }
 
