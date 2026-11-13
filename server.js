@@ -6,6 +6,9 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
+//Interpreter Part
+app.use('/api', require('./jsServices/interpret'));
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -13,12 +16,7 @@ app.listen(3000,() =>{
     console.log("Server is running on port 3000");
 })
 
-const slangTerm = mongoose.model('slangTerm', new mongoose.Schema({
-    term:String,
-    description:String,
-    example:String,
-    dateOfOrigin:String
-}));
+const slangTerm = require('./jsServices/models/slangTerm');
 
 app.post('/api/slangterm', async (req,res) =>{
     const slangterm = new slangTerm(req.body);
