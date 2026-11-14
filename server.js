@@ -8,6 +8,8 @@ app.use(express.json());
 app.use(cors());
 //Interpreter Part
 app.use('/api', require('./jsServices/interpret'));
+//Slangify Part
+app.use('/api', require('./jsServices/slangify'));
 
 
 mongoose.connect(process.env.MONGODB_URI);

@@ -1,30 +1,42 @@
 <section class="interpreter">
-  <h1>Alpha Slang Interpreter</h1>
+  <h1>Alpha Slang Translator</h1>
 
-  <label for="slang-input">Alpha slang</label>
+  <div class="actions">
+    <button [class.secondary]="mode() !== 'interpret'" (click)="setMode('interpret')">
+      Slang → English
+    </button>
+    <button [class.secondary]="mode() !== 'slangify'" (click)="setMode('slangify')">
+      English → Slang
+    </button>
+  </div>
+
+  <label for="in">{{ mode() === 'interpret' ? 'Alpha slang' : 'Plain English' }}</label>
   <textarea
-    id="slang-input"
+    id="in"
     rows="5"
-    placeholder="Type or paste some alpha slang..."
+    placeholder="Type, paste, or use the mic..."
     [ngModel]="input()"
     (ngModelChange)="input.set($event)"
   ></textarea>
 
   <div class="actions">
-    <button (click)="interpret()" [disabled]="loading() || !input().trim()">
-      {{ loading() ? 'Interpreting...' : 'Interpret' }}
+    <button (click)="run()" [disabled]="loading() || !input().trim()">
+      {{ loading() ? 'Working...' : (mode() === 'interpret' ? 'Interpret' : 'Slangify') }}
     </button>
+    @if (voiceSupported) {
+      <button class="secondary" (click)="toggleVoice()">
+        {{ listening() ? 'Stop' : '🎤 Speak' }}
+      </button>
+    }
     <button class="secondary" (click)="clear()">Clear</button>
   </div>
 
-  @if (error()) {
-    <p class="error">{{ error() }}</p>
-  }
+  @if (error()) { <p class="error">{{ error() }}</p> }
 
-  <label>Plain English</label>
-  <div class="output">{{ output() || 'The interpretation will show up here.' }}</div>
+  <label>{{ mode() === 'interpret' ? 'Plain English' : 'Alpha slang' }}</label>
+  <div class="output">{{ output() || 'The result will show up here.' }}</div>
 
   @if (matches().length) {
-    <p class="matches">Slang found: {{ matches().join(', ') }}</p>
+    <p class="matches">Terms used: {{ matches().join(', ') }}</p>
   }
 </section>

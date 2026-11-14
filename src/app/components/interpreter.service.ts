@@ -13,6 +13,10 @@ export class InterpreterService {
   private http = inject(HttpClient);
 
   interpret(text: string): Observable<InterpretResponse> {
-  return this.http.post<InterpretResponse>('http://localhost:3000/api/interpret', { text });
-}
+    return this.http.post<InterpretResponse>('/api/interpret', { text });
+  }
+
+  slangify(text: string): Observable<InterpretResponse> {
+    return this.http.post<InterpretResponse>('/api/slangify', { text });
+  }
 }
