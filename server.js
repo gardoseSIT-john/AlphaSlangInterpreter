@@ -6,6 +6,12 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+
+const rateLimit = require('express-rate-limit');
+app.set('trust proxy', 1); // needed on hosts that sit behind a proxy
+app.use('/api/interpret', rateLimit({ windowMs: 60 * 1000, max: 10 }));
+
 //Interpreter Part
 app.use('/api', require('./jsServices/interpret'));
 //Slangify Part
