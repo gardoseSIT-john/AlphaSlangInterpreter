@@ -3,7 +3,8 @@ import { InterpreterComponent } from './components/interpreter.component/interpr
 import { DictionaryDisplayComponent } from './components/dictionary-display-component/dictionary-display-component';
 
 export const routes: Routes = [
-  { path: '', component: InterpreterComponent },
+  { path: '', redirectTo: 'interpreter', pathMatch: 'full' },
+  { path: 'interpreter', component: InterpreterComponent },
   { path: 'dictionary', component: DictionaryDisplayComponent },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'interpreter' },
 ];
