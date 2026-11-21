@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {TopBar} from './components/top-bar/top-bar';
 
 @Component({
-  imports: [RouterOutlet,DictionaryDisplayComponent, TopBar],
+  imports: [RouterOutlet, TopBar],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
