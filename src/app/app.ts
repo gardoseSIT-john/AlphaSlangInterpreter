@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {DictionaryDisplayComponent} from './components/dictionary-display-component/dictionary-display-component';
 import {TopBar} from './components/top-bar/top-bar';
 
 @Component({
