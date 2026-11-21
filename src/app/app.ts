@@ -4,7 +4,7 @@ import {DictionaryDisplayComponent} from './components/dictionary-display-compon
 import {TopBar} from './components/top-bar/top-bar';
 
 @Component({
-  imports: [RouterOutlet,DictionaryDisplayComponent,TopBar],
+  imports: [RouterOutlet,DictionaryDisplayComponent, TopBar],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
