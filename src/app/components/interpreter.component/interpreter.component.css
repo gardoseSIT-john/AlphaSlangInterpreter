@@ -179,3 +179,30 @@
     gap: 0.4rem;
   }
 }
+
+/* Added CSS for the details section */
+.term-used{
+  display:flex;
+  flex-direction:column;
+  gap: 0.5em;
+}
+.term-used h2{
+  font-size:1.1em;
+  margin:0;
+}
+.term-card{
+  padding:0.75rem;
+  border:1px solid #ddd;
+  border-radius:6px;
+}
+.term-card h3{
+  margin: 0 0 0.25rem;
+  font-size:1em;
+}
+.term-card p{
+  margin: 0.15em 0;
+}
+.term-card .example{
+  font-style:italic;
+  opacity:0.8;
+}

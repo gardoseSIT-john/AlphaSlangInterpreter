@@ -275,8 +275,13 @@ router.post('/interpret', async (req, res) => {
         console.error('LLM unavailable, using NLP fallback:', err.message);
       }
     }
-
-    res.json({ original: text, translation, matches, method });
+        // This grabs the details of the matched entries to send to our Angular again for display.
+        const details = entries.map((e) => ({
+        term: e.term,
+        description: e.description,
+        example: e.example,
+        }));
+    res.json({ original: text, translation, matches, details, method });
   } catch (err) {
     console.error('Interpret failed:', err);
     res.status(500).json({ error: 'Interpretation failed' });

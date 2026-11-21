@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { InterpreterService } from '../interpreter.service';
+import { InterpreterService,SlangDetail } from '../interpreter.service';
 
 @Component({
   selector: 'app-interpreter',
@@ -17,6 +17,7 @@ export class InterpreterComponent {
   input = signal('');
   output = signal('');
   matches = signal<string[]>([]);
+  details = signal<SlangDetail[]>([]);
   loading = signal(false);
   listening = signal(false);
   error = signal('');
@@ -29,6 +30,8 @@ export class InterpreterComponent {
     this.mode.set(m);
     this.output.set('');
     this.matches.set([]);
+    //Added this for details(New Update)
+    this.details.set([]);
   }
 
   run() {
@@ -47,6 +50,7 @@ export class InterpreterComponent {
       next: (res) => {
         this.output.set(res.translation);
         this.matches.set(res.matches ?? []);
+        this.details.set(res.details ?? []);//Added for details 
         this.loading.set(false);
       },
       error: (err) => {

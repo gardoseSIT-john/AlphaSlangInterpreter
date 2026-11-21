@@ -20,3 +20,17 @@ export class InterpreterService {
     return this.http.post<InterpretResponse>('/api/slangify', { text });
   }
 }
+//Interpreter's smaller dictionary
+export interface SlangDetail{
+  term:string
+  description:string
+  example?:string
+}
+
+export interface InterpretResponse{
+  original:string;
+  translation:string;
+  matches:string[];
+  details?:SlangDetail[];
+  method?:string;
+}

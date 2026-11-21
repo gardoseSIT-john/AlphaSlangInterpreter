@@ -36,7 +36,19 @@
   <label>{{ mode() === 'interpret' ? 'Plain English' : 'Alpha slang' }}</label>
   <div class="output">{{ output() || 'The result will show up here.' }}</div>
 
-  @if (matches().length) {
-    <p class="matches">Terms used: {{ matches().join(', ') }}</p>
+  @if (details().length){<!--If theres details to show, show it-->
+    <div class="terms-used">
+      <h2>Terms Used</h2>
+      @for (d of details(); track d.term){<!--Loop through the detected details create the following-->
+        <div class="term-card">
+          <h3>{{d.term}}</h3><!--The term itself-->
+          <p class="desc">{{d.description}}</p><!--Desctiption of the Term-->
+          @if (d.example){<!--If there's an example, its rendered here.-->
+            <p class="example">Example: "{{d.example}}"</p>
+          }
+        </div>
+        
+      }
+    </div>
   }
 </section>
