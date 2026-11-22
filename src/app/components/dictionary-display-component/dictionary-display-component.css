@@ -31,6 +31,7 @@ tbody { display: contents; }
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 999px;
+
 }
 
 /* [1]styled like a video caption: text on boxes that wrapings each line */
