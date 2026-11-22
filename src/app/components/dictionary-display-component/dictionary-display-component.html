@@ -1,44 +1,83 @@
-<h1>Dictionary Component Test</h1>
-
-<table border="1px" width="60%" align="center">
-    <tr>
-        <td align="center">
-            <h1>Alpha Slang Dictionary</h1>
-        </td>
-    </tr>
-</table>
-<table border="1px" width="60%" align="center">
-    <tr>
-        <th width="25%">Terms</th>
-        <th width="65%">Definitions</th>   
-    </tr>
-    @for (terms of alphaSlang.terms(); track terms.term){
-        <tr>
-            <th>{{ terms.term }}</th>
-            <td>{{ terms.description }}</td>
-        </tr>
-    }
-</table>
-<table width="100%">
-@for (terms of alphaSlang.terms(); track terms.term){
-    <div id="term_card">
-        <table id="term_table">
-            <tr id="term_name">
-                <td><h2>{{terms.term}}</h2></td>
-            </tr>
-            <tr id ="term_description">
-                <td>
-                    <h2>Description</h2>
-                    <p>{{terms.description}}</p>
-                </td>
-            </tr>
-            <tr id="term_sample">
-                <td><p>{{terms.example}}</p></td>
-            </tr>
-        </table>
 
 
+<div id="dictionary">
+    <div id="dictionary_header">
+        <div
+            id="dictionary_search"
+            [class.search-open]="showSearch()"
+        >
+            <button (click)="toggleSearch()">Search</button>
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Enter term">             
+        </div>
+
+        <div id="dictionary_title">
+            <h1>Dictionary</h1>
+        </div>
     </div>
+
+    @if (searchTerm()){
+        @for (terms of alphaSlangService.alphaTermsList(); track terms.term){
+            @if (terms.term.includes(searchTerm())){
+                <div id="term_card">
+                    <div id="term_name">
+                        <h2>{{ terms.term }}</h2>
+                    </div>
+
+                    <div id="term_description">
+                        <p>{{ terms.description }}</p>
+                    </div>
+
+                    <div id="term_sample">
+                        <p>{{ terms.example }}</p>
+                    </div>
+                </div>
+            }
+        }
+    }
+    @else {
+         @for (terms of alphaSlang.terms(); track terms.term) {
+        <div id="term_card">
+            <div id="term_name">
+                <h2>{{ terms.term }}</h2>
+            </div>
+
+            <div id="term_description">
+                <p>{{ terms.description }}</p>
+            </div>
+
+            <div id="term_sample">
+                <p>{{ terms.example }}</p>
+            </div>
+        </div>
+    }
+
+    }
+
+
+    <div id="dictionary_footer">
+        <span>✦</span>
+        <span>Alpha Slang Dictionary</span>
+        <span>✦</span>
+    </div>
+</div>
+
+<!--
+<form [formGroup]="slangtermForm" (ngSubmit)="onSubmit()">
+    <input formControlName="term" placeholder="Enter Term">
+    <input formControlName="description" placeholder="Enter Description">
+    <input formControlName="example" placeholder="Enter Example">
+    <input formControlName="dateOfOrigin" placeholder="Enter Date of Origin">
+    <button type="submit" [disabled]="!slangtermForm.valid">Add Term</button>
+</form>
+
+@for (t of alphaSlangService.alphaTermsList(); track t._id){
+    <div class="card">
+        <h3>Term: {{t.term}}</h3>
+        <h3>Description: {{t.description}}</h3>
+        <h3>Example: {{t.example}}</h3>
+        <p>Date of Origin: {{t.dateOfOrigin}}</p>
+    </div>
+} @empty {
+    <p>No Terms Recorded</p>
 }
-    
-</table>
+-->

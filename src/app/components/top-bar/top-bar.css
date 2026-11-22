@@ -1,0 +1,97 @@
+:host {
+  display: block;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 6px 18px -16px rgb(var(--shadow) / 0.4);
+}
+
+h2 {
+  max-width: 60rem;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 6px 18px -16px rgb(var(--shadow) / 0.4);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  padding: 0.5rem 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  border-color: var(--chat);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px -10px rgb(var(--shadow) / 0.5);
+}
+
+.nav-btn.active {
+  color: var(--on-chat);
+  background: var(--chat);
+  border-color: var(--chat);
+  box-shadow: 0 6px 12px -10px rgb(var(--shadow) / 0.5);
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+}
