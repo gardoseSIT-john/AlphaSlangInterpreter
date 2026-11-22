@@ -26,17 +26,12 @@
   padding: 1rem 1.2rem;
   background: var(--surface);
   border: 1px solid var(--line);
-<<<<<<< HEAD
-  border-radius: 999px;
-
-=======
   border-radius: 0.8rem;
   box-shadow: 0 4px 12px -10px rgb(var(--shadow) / 0.3);
   transition:
     padding 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease;
->>>>>>> 3f42c23822c885f1029e1c2332464bad2c45f11c
 }
 
 #term_card:hover {
@@ -47,25 +42,10 @@
 
 #term_name h2 {
   margin: 0;
-<<<<<<< HEAD
-  padding: 0.2em 0.4em 0.16em;
-  font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem);
-  font-weight: 900;
-  font-stretch: 112%;
-  line-height: 1.05;
-  color: var(--sticker-ink);
-  background: var(--sticker, var(--tangerine));
-  border-radius: 0.3em;
-  box-shadow: 0 0 0 0.14em var(--sticker-edge),
-    0 0.6rem 1.2rem -0.35rem rgb(var(--shadow) / 0.4);
-  rotate: var(--tilt, -3deg);
-  transition: rotate 0.4s var(--ease-pop);
-=======
   font-size: 1.35rem;
   font-weight: 800;
   line-height: 1.2;
   color: var(--ink);
->>>>>>> 3f42c23822c885f1029e1c2332464bad2c45f11c
 }
 
 #term_description p {
