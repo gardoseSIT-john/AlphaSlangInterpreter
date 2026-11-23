@@ -8,7 +8,7 @@ export class AlphaTermsService {
 
     //Alpha Slang MGDB 
     private http = inject(HttpClient);
-    private apiURL = 'http://localhost:3000/api/slangterm'; //This be the MONGODB Version.
+    private apiURL = '/api/slangterm'; //This be the MONGODB Version.
 
 
 
@@ -23,6 +23,7 @@ export class AlphaTermsService {
         return this.http.post(this.apiURL,data);
     }
     
+    //5his is a old version of data from Sprint1
     private _alphaTerms = signal([
         {
             term: 'Gyatt',

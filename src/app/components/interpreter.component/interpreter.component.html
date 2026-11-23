@@ -23,11 +23,6 @@
     <button (click)="run()" [disabled]="loading() || !input().trim()">
       {{ loading() ? 'Working...' : (mode() === 'interpret' ? 'Interpret' : 'Slangify') }}
     </button>
-    @if (voiceSupported) {
-      <button class="secondary" (click)="toggleVoice()">
-        {{ listening() ? 'Stop' : '🎤 Speak' }}
-      </button>
-    }
     <button class="secondary" (click)="clear()">Clear</button>
   </div>
 
